@@ -555,12 +555,40 @@
 
 <!-- PVカウンタースクリプト -->
 <script>
+  const COUNTER_INIT = 0;
+  const COUNTER_KEY = 'amour_pv_count';
+
+  function getCount() {
+    const stored = localStorage.getItem(COUNTER_KEY);
+    if (!stored) {
+      localStorage.setItem(COUNTER_KEY, COUNTER_INIT + 1);
+      return COUNTER_INIT + 1;
+    }
+    const newCount = parseInt(stored) + 1;
+    localStorage.setItem(COUNTER_KEY, newCount);
+    return newCount;
+  }
+
   function formatCount(n) {
     return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
+
   document.addEventListener('DOMContentLoaded', function() {
+    const count = getCount();
     const el = document.getElementById('pv-counter');
-    if (el) el.textContent = '';
+    if (el) {
+      let start = Math.max(count - 30, 0);
+      let current = start;
+      const step = Math.ceil((count - start) / 30);
+      const timer = setInterval(function() {
+        current += step;
+        if (current >= count) {
+          current = count;
+          clearInterval(timer);
+        }
+        el.textContent = formatCount(current);
+      }, 40);
+    }
   });
 </script>
 
@@ -573,9 +601,9 @@
   <h1 class="site-title">箱ヘル <span>アムール</span>（難波）<br>個人情報漏洩疑惑 完全まとめ</h1>
   <p class="site-subtitle">シティヘブン登録情報が爆サイに投稿された件の経緯・考察・証拠</p>
   <!-- PVカウンター表示 -->
-  <div style="margin-top:20px; display:inline-flex; align-items:center; gap:10px; background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.1); border-radius:4px; padding:10px 20px;">
-    <span style="font-size:14px; color:var(--text3); letter-spacing:0.12em; font-weight:700;">TOTAL ACCESS</span>
-    <img src="https://hits.sh/core-ix7.github.io/amour-matome.svg?style=flat-square&color=e84a4a&labelColor=0f0f13&label=" alt="アクセスカウンター" style="height:28px; vertical-align:middle;">
+  <div style="margin-top:20px; display:inline-flex; align-items:center; gap:10px; background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.1); border-radius:4px; padding:8px 20px;">
+    <span style="font-size:17px; color:var(--text3); letter-spacing:0.12em; font-weight:700;">TOTAL ACCESS</span>
+    <span id="pv-counter" style="font-size:22px; font-weight:900; color:var(--accent); letter-spacing:0.05em;">0</span>
   </div>
 </div>
 
@@ -632,6 +660,7 @@
       <li><a href="#s5">店側の工作戦術の変遷</a></li>
       <li><a href="#s5b">【新発見】投稿時間帯・連続投稿パターン分析</a></li>
       <li><a href="#s5c">【追加考察】店側のその後の行動と逆効果の連鎖</a></li>
+      <li><a href="#s5d">【重要】店側投稿の特徴：複数人・反社匂わせ・脅しのパターン</a></li>
       <li><a href="#s6">法的問題点</a></li>
       <li><a href="#s7">利用者への注意喚起</a></li>
       <li><a href="#s8">一次資料・参照リンク</a></li>
@@ -1332,6 +1361,150 @@
         <div class="key-point" style="margin-top:14px;">
           もし#493がなければ：口コミが数件残る程度・スレが数十レスで終わる・まとめサイトも作られなかった・Googleマップも消えなかった。<br><br>
           <span class="hl">06:10という早朝の感情的な一投稿が、店の命運を変えた可能性があります。</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- セクション5d：店側投稿の特徴まとめ -->
+  <div class="section" id="s5d">
+    <div class="section-header">
+      <div class="section-num" style="background:#9b59b6;">⚠</div>
+      <h2 class="section-title">【重要】店側投稿の特徴：複数人・脅し・反社匂わせ</h2>
+    </div>
+
+    <p>爆サイへの投稿を精査すると、店側と思われる投稿には明確な共通パターンが確認できます。一般の利用者には出てこない特徴が繰り返し現れています。</p>
+
+    <div class="analysis-block">
+      <div class="analysis-header red">①複数人が役割分担して投稿している</div>
+      <div class="analysis-body">
+        <p style="margin:0 0 14px;">文体・内容・時間帯から、少なくとも3〜4名が関与していると考えられます。</p>
+        <table class="data-table">
+          <thead>
+            <tr><th>役割</th><th>特徴</th><th>代表投稿</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tag red">責任者クラス</span></td>
+              <td>法的用語を使う・チャット内容を知っている・返金拒否の決定権を持つ</td>
+              <td>#525・#534・#552・#788</td>
+            </tr>
+            <tr>
+              <td><span class="tag orange">感情的スタッフ</span></td>
+              <td>「きちがい」「やばい」等の暴言・早朝に感情的投稿</td>
+              <td>#493・#470・#547</td>
+            </tr>
+            <tr>
+              <td><span class="tag blue">沈静化担当</span></td>
+              <td>「個スレでやれ」「もういいんじゃない」という話題転換</td>
+              <td>#603・#606・#804</td>
+            </tr>
+            <tr>
+              <td><span class="tag green">嘲笑担当</span></td>
+              <td>絵文字多用・煽り口調・Xアカウントを晒す</td>
+              <td>#733・#797・#814</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="key-point" style="margin-top:12px;">
+          <span class="hl">一般の利用者が特定の店を守るために役割分担して投稿する動機はありません。</span>店として組織的に対応していた可能性が高いと考えられます。
+        </div>
+      </div>
+    </div>
+
+    <div class="analysis-block">
+      <div class="analysis-header orange">②法的脅しを繰り返し使用</div>
+      <div class="analysis-body">
+        <p style="margin:0 0 14px;">一般客が使わない法的用語が繰り返し登場しています。</p>
+        <table class="data-table">
+          <thead>
+            <tr><th>使用された言葉</th><th>問題点</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>「営業妨害」</td>
+              <td>事実の公表は業務妨害罪を構成しない。使い方が不正確。</td>
+            </tr>
+            <tr>
+              <td>「名誉毀損」</td>
+              <td>「するんだろ」という推測表現に適用しようとした。要件を満たさない。</td>
+            </tr>
+            <tr>
+              <td>「開示請求したら終わる」</td>
+              <td>開示請求が通れば投稿者＝店側が確定する。完全なブーメラン。</td>
+            </tr>
+            <tr>
+              <td>「投稿者に責任がある」</td>
+              <td>事実に基づく公益目的の投稿には責任が生じない。</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="key-point" style="margin-top:12px;">
+          本件の当事者は「法律を生業としている」と明記しており、<span class="hl">不正確な法的用語による脅しは一切通用しませんでした。</span>むしろ法律知識の不足を露呈する結果になっています。
+        </div>
+      </div>
+    </div>
+
+    <div class="analysis-block">
+      <div class="analysis-header red">③反社を匂わせる脅し</div>
+      <div class="analysis-body">
+        <div class="bbs-post suspicious" style="margin-bottom:14px;">
+          <div class="post-num">#553（4/27 20:00）</div>
+          風俗で返金ないのは仕方ないよ<br>
+          そもそもアンダーグラウンドな業界。<br>
+          <span class="hl">ここにケツ持ちおるんかは知らんけど<br>
+          あんまり騒ぎ立てるとロクなことないで</span>
+        </div>
+        <div class="key-point" style="margin:0;">
+          <strong style="color:var(--text);">「ケツ持ち」「ロクなことないで」という表現について：</strong><br><br>
+          「ケツ持ち」とは暴力団等の後ろ盾を指す業界用語です。この表現を使った投稿は<span class="hl">反社会的勢力の存在を匂わせることで相手を威圧しようとした</span>と読み取れます。<br><br>
+          しかし：<br>
+          ・事実に基づく口コミ投稿は適法な行為<br>
+          ・適法な行為を威圧で封じようとすること自体が問題<br>
+          ・むしろこのような脅しが存在すること自体が、店の体質を示す情報として記録されています
+        </div>
+      </div>
+    </div>
+
+    <div class="analysis-block">
+      <div class="analysis-header blue">④漏洩問題にだけ過剰反応</div>
+      <div class="analysis-body">
+        <table class="data-table">
+          <thead>
+            <tr><th>批判の種類</th><th>店側の反応</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>パネマジ・サービス批判</td>
+              <td>「ヒロちゃんこんばんは」で流す・ほぼスルー</td>
+            </tr>
+            <tr>
+              <td>体臭・外見の批判</td>
+              <td>反応なし</td>
+            </tr>
+            <tr>
+              <td><span class="hl">個人情報漏洩問題</span></td>
+              <td><span class="hl">法的脅し連発・早朝05:34から監視・17時間張り付き・自己削除3件・まとめサイト矮小化工作</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="key-point" style="margin-top:12px;">
+          漏洩問題にだけ過剰反応するという行動パターンは、<span class="hl">「ヤバいことをした」という自覚がある証拠</span>として読み取れます。
+        </div>
+      </div>
+    </div>
+
+    <div class="analysis-block">
+      <div class="analysis-header green">⑤投稿時間帯が営業時間と一致</div>
+      <div class="analysis-body">
+        <p style="margin:0 0 12px;">店側疑惑投稿の時間帯を整理すると、02:00〜06:00にほぼ完全に投稿が存在しません。</p>
+        <div class="key-point" style="margin:0;">
+          <strong style="color:var(--text);">最も象徴的な事実：</strong><br>
+          #493の投稿時刻は<span class="hl">06:10</span>——アムールの営業開始（06:00）からわずか10分後です。<br>
+          出勤直後にスレを確認し、感情的になって即投稿したと考えられます。<br><br>
+          また5/2には深夜00:02〜01:38に9件連続投稿の後、07:25から再度投稿が始まるという「深夜帰宅後投稿→就寝→出勤前後に再開」というパターンが確認されています。<br><br>
+          <span class="hl">このリズムは風俗店スタッフの生活パターンと完全に一致しており、一般の社会人では説明できません。</span>
         </div>
       </div>
     </div>
