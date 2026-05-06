@@ -555,40 +555,12 @@
 
 <!-- PVカウンタースクリプト -->
 <script>
-  const COUNTER_INIT = 0;
-  const COUNTER_KEY = 'amour_pv_count';
-
-  function getCount() {
-    const stored = localStorage.getItem(COUNTER_KEY);
-    if (!stored) {
-      localStorage.setItem(COUNTER_KEY, COUNTER_INIT + 1);
-      return COUNTER_INIT + 1;
-    }
-    const newCount = parseInt(stored) + 1;
-    localStorage.setItem(COUNTER_KEY, newCount);
-    return newCount;
-  }
-
   function formatCount(n) {
     return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
-
   document.addEventListener('DOMContentLoaded', function() {
-    const count = getCount();
     const el = document.getElementById('pv-counter');
-    if (el) {
-      let start = Math.max(count - 30, 0);
-      let current = start;
-      const step = Math.ceil((count - start) / 30);
-      const timer = setInterval(function() {
-        current += step;
-        if (current >= count) {
-          current = count;
-          clearInterval(timer);
-        }
-        el.textContent = formatCount(current);
-      }, 40);
-    }
+    if (el) el.textContent = '';
   });
 </script>
 
@@ -601,9 +573,9 @@
   <h1 class="site-title">箱ヘル <span>アムール</span>（難波）<br>個人情報漏洩疑惑 完全まとめ</h1>
   <p class="site-subtitle">シティヘブン登録情報が爆サイに投稿された件の経緯・考察・証拠</p>
   <!-- PVカウンター表示 -->
-  <div style="margin-top:20px; display:inline-flex; align-items:center; gap:10px; background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.1); border-radius:4px; padding:8px 20px;">
-    <span style="font-size:17px; color:var(--text3); letter-spacing:0.12em; font-weight:700;">TOTAL ACCESS</span>
-    <span id="pv-counter" style="font-size:22px; font-weight:900; color:var(--accent); letter-spacing:0.05em;">0</span>
+  <div style="margin-top:20px; display:inline-flex; align-items:center; gap:10px; background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.1); border-radius:4px; padding:10px 20px;">
+    <span style="font-size:14px; color:var(--text3); letter-spacing:0.12em; font-weight:700;">TOTAL ACCESS</span>
+    <img src="https://hits.sh/core-ix7.github.io/amour-matome.svg?style=flat-square&color=e84a4a&labelColor=0f0f13&label=" alt="アクセスカウンター" style="height:28px; vertical-align:middle;">
   </div>
 </div>
 
