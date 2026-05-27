@@ -547,9 +547,84 @@
   hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
 
   @media (max-width: 600px) {
-    .container { padding: 0 16px; }
+    .container { padding: 0 12px; }
     .card { padding: 16px; }
     .chat-body { padding: 14px; }
+    .analysis-body { padding: 12px 14px; }
+
+    /* テーブル全体をカード形式に変換 */
+    .data-table thead { display: none; }
+    .data-table tbody, .data-table tr, .data-table td {
+      display: block;
+      width: 100%;
+    }
+    .data-table tr {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 10px;
+      background: var(--bg3);
+      overflow: hidden;
+    }
+    .data-table tr:hover td { background: transparent; }
+    .data-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .data-table td:last-child { border-bottom: none; }
+
+    /* data-label を使ってカラム名を表示 */
+    .data-table td[data-label]::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--text3);
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    /* 矛盾点テーブル専用：投稿内容セルを強調 */
+    .contradiction-table td:nth-child(1) {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 700;
+      padding-bottom: 4px;
+    }
+    .contradiction-table td:nth-child(2) {
+      font-size: 15px;
+      color: var(--text);
+      font-weight: 500;
+    }
+    .contradiction-table td:nth-child(3) {
+      font-size: 14px;
+      color: var(--text2);
+      background: rgba(0,0,0,0.15);
+    }
+
+    /* 事件概要テーブル（縦2列） */
+    .summary-table td:first-child {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text3);
+      letter-spacing: 0.1em;
+      padding-bottom: 2px;
+      border-bottom: none;
+    }
+    .summary-table td:last-child {
+      padding-top: 4px;
+      font-size: 15px;
+    }
+
+    /* フロー図 */
+    .flow-item { font-size: 15px; padding: 10px 14px; }
+
+    /* セクションタイトル */
+    .section-title { font-size: 18px; }
+
+    html { font-size: 17px; }
   }
 </style>
 
@@ -609,13 +684,28 @@
   </div>
 
   <div class="card">
-    <table class="data-table">
+    <table class="data-table summary-table">
       <tbody>
-        <tr><td style="width:140px; color:var(--text3);">発生日</td><td>2026年4月9日</td></tr>
-        <tr><td style="color:var(--text3);">店舗</td><td>箱ヘル アムール（難波）06-6213-5599</td></tr>
-        <tr><td style="color:var(--text3);">経緯</td><td>東京在住の利用者がスタッフ推薦の嬢（スイ）を指名。HP記載のサービスと実態が著しく乖離。シティヘブンチャットでクレームを入れたが返金拒否→チャット決裂→爆サイ・Xに口コミ投稿</td></tr>
-        <tr><td style="color:var(--text3);">核心</td><td><span class="hl">爆サイ#493に「ヒロちゃん」という登録ニックネームが投稿された。この名前はシティヘブン管理画面からしか取得不可能な情報であり、情報漏洩の決定的証拠となっている</span></td></tr>
-        <tr><td style="color:var(--text3);">チャット確認事項</td><td>店はサービス不備を複数回謝罪済み（4/10・4/22）。返金・無料券対応は一切拒否。チャット内に「ヒロちゃん」という名前は存在しない</td></tr>
+        <tr>
+          <td style="width:140px; color:var(--text3);" data-label="項目">発生日</td>
+          <td data-label="内容">2026年4月9日</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text3);" data-label="項目">店舗</td>
+          <td data-label="内容">箱ヘル アムール（難波）06-6213-5599</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text3);" data-label="項目">経緯</td>
+          <td data-label="内容">東京在住の利用者がスタッフ推薦の嬢（スイ）を指名。HP記載のサービスと実態が著しく乖離。シティヘブンチャットでクレームを入れたが返金拒否→チャット決裂→爆サイ・Xに口コミ投稿</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text3);" data-label="項目">核心</td>
+          <td data-label="内容"><span class="hl">爆サイ#493に「ヒロちゃん」という登録ニックネームが投稿された。この名前はシティヘブン管理画面からしか取得不可能な情報であり、情報漏洩の決定的証拠となっている</span></td>
+        </tr>
+        <tr>
+          <td style="color:var(--text3);" data-label="項目">チャット確認事項</td>
+          <td data-label="内容">店はサービス不備を複数回謝罪済み（4/10・4/22）。返金・無料券対応は一切拒否。チャット内に「ヒロちゃん」という名前は存在しない</td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -662,10 +752,26 @@
       <table class="data-table">
         <thead><tr><th>可能性</th><th>成立するか</th><th>理由</th></tr></thead>
         <tbody>
-          <tr><td>知人が教えた</td><td><span style="color:var(--green);">×</span></td><td>リアルでこのニックネームを使ったことがない</td></tr>
-          <tr><td>店内でスイに名乗った</td><td><span style="color:var(--green);">×</span></td><td>店内・スイに対して名乗っていない</td></tr>
-          <tr><td>チャットに記載した</td><td><span style="color:var(--green);">×</span></td><td>チャット38通に「ヒロちゃん」の記載なし</td></tr>
-          <tr><td>シティヘブン管理画面</td><td><span style="color:var(--red);">◎</span></td><td><span class="hl">店舗関係者のみアクセス可能。唯一の経路</span></td></tr>
+          <tr>
+            <td data-label="可能性">知人が教えた</td>
+            <td data-label="成立するか"><span style="color:var(--green);">×</span></td>
+            <td data-label="理由">リアルでこのニックネームを使ったことがない</td>
+          </tr>
+          <tr>
+            <td data-label="可能性">店内でスイに名乗った</td>
+            <td data-label="成立するか"><span style="color:var(--green);">×</span></td>
+            <td data-label="理由">店内・スイに対して名乗っていない</td>
+          </tr>
+          <tr>
+            <td data-label="可能性">チャットに記載した</td>
+            <td data-label="成立するか"><span style="color:var(--green);">×</span></td>
+            <td data-label="理由">チャット38通に「ヒロちゃん」の記載なし</td>
+          </tr>
+          <tr>
+            <td data-label="可能性">シティヘブン管理画面</td>
+            <td data-label="成立するか"><span style="color:var(--red);">◎</span></td>
+            <td data-label="理由"><span class="hl">店舗関係者のみアクセス可能。唯一の経路</span></td>
+          </tr>
         </tbody>
       </table>
       <div class="key-point" style="margin-top:12px;">
@@ -677,16 +783,44 @@
   <div class="analysis-block">
     <div class="analysis-header orange">チャットを読まないと書けない矛盾点（7点）</div>
     <div class="analysis-body">
-      <table class="data-table">
+      <table class="data-table contradiction-table">
         <thead><tr><th>#</th><th>投稿内容</th><th>なぜチャット既読者のみ書けるか</th></tr></thead>
         <tbody>
-          <tr><td>#493</td><td>「ヒロちゃん、40分でイってる」</td><td>「ヒロちゃん」はチャット外情報。「40分」も来店記録のみ</td></tr>
-          <tr><td>#552</td><td>少額訴訟→通常訴訟の反論</td><td>チャット内でのみ少額訴訟に言及</td></tr>
-          <tr><td>#525</td><td>「口コミ・チャット・ここにも書く」を把握</td><td>チャット末尾の宣言を知っている</td></tr>
-          <tr><td>#547</td><td>「出禁確定」</td><td>決定権を持つ者の発言</td></tr>
-          <tr><td>#493</td><td>「50代のおっさん」</td><td>シティヘブン登録年代のみ</td></tr>
-          <tr><td>#945</td><td>「士業かじり」</td><td>チャット内「法律を生業」の記載のみ。かつ法律関係≠士業という誤解</td></tr>
-          <tr><td>#223（110スレ 5/20）</td><td>「店に無料券強請るような性格のヒロちゃん」</td><td>チャット内でヒロちゃんは当初、無料券での解決を店に提案していた。この交渉経緯はまとめ・爆サイ・Xのどこにも記載がない。チャットを読んだ者のみ書ける情報。<d></tr>
+          <tr>
+            <td data-label="#">#493</td>
+            <td data-label="投稿内容">「ヒロちゃん、40分でイってる」</td>
+            <td data-label="なぜチャット既読者のみ書けるか">「ヒロちゃん」はチャット外情報。「40分」も来店記録のみ</td>
+          </tr>
+          <tr>
+            <td data-label="#">#552</td>
+            <td data-label="投稿内容">少額訴訟→通常訴訟の反論</td>
+            <td data-label="なぜチャット既読者のみ書けるか">チャット内でのみ少額訴訟に言及</td>
+          </tr>
+          <tr>
+            <td data-label="#">#525</td>
+            <td data-label="投稿内容">「口コミ・チャット・ここにも書く」を把握</td>
+            <td data-label="なぜチャット既読者のみ書けるか">チャット末尾の宣言を知っている</td>
+          </tr>
+          <tr>
+            <td data-label="#">#547</td>
+            <td data-label="投稿内容">「出禁確定」</td>
+            <td data-label="なぜチャット既読者のみ書けるか">決定権を持つ者の発言</td>
+          </tr>
+          <tr>
+            <td data-label="#">#493</td>
+            <td data-label="投稿内容">「50代のおっさん」</td>
+            <td data-label="なぜチャット既読者のみ書けるか">シティヘブン登録年代のみ</td>
+          </tr>
+          <tr>
+            <td data-label="#">#945</td>
+            <td data-label="投稿内容">「士業かじり」</td>
+            <td data-label="なぜチャット既読者のみ書けるか">チャット内「法律を生業」の記載のみ。かつ法律関係≠士業という誤解</td>
+          </tr>
+          <tr>
+            <td data-label="#">#223（110スレ 5/20）</td>
+            <td data-label="投稿内容">「店に無料券強請るような性格のヒロちゃん」</td>
+            <td data-label="なぜチャット既読者のみ書けるか">チャット内でヒロちゃんは当初、無料券での解決を店に提案していた。この交渉経緯はまとめ・爆サイ・Xのどこにも記載がない。チャットを読んだ者のみ書ける情報。</td>
+          </tr>
         </tbody>
       </table>
       <div class="key-point" style="margin-top:12px;">
