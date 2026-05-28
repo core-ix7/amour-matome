@@ -675,6 +675,29 @@
   </ol>
 </div>
 
+<!-- シェアブロック（冒頭） -->
+<div id="share-block-top" style="background:linear-gradient(135deg,#1a2a1a,#1e2e1a); border:2px solid #4ade80; border-radius:8px; padding:20px 24px; margin:24px 0; text-align:center;">
+  <div style="font-size:13px; color:#4ade80; letter-spacing:0.1em; font-weight:700; margin-bottom:10px;">📢 リンクフリー ― 拡散・転載歓迎</div>
+  <a id="x-share-top" href="#" target="_blank" rel="noopener" style="
+    display:inline-flex; align-items:center; gap:8px;
+    background:#e8f5e9; color:#111; font-weight:700; font-size:15px;
+    padding:10px 22px; border-radius:6px; text-decoration:none;
+    border:1px solid #4ade80; transition:background 0.2s;
+  " onmouseover="this.style.background='#c8e6c9'" onmouseout="this.style.background='#e8f5e9'">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="#111"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    Xでシェアする
+  </a>
+  <div style="margin-top:14px;">
+    <div style="font-size:12px; color:#a0d8b0; margin-bottom:6px;">このページのURL（クリックでコピー）</div>
+    <div id="page-url-top" style="
+      background:#0f1f0f; border:1px solid #4ade80; border-radius:4px;
+      padding:8px 12px; font-size:13px; color:#c8e6c9; word-break:break-all;
+      cursor:pointer; user-select:all; text-align:left;
+    " title="クリックでコピー">読み込み中...</div>
+    <div id="copy-msg-top" style="font-size:12px; color:#4ade80; margin-top:4px; height:16px;"></div>
+  </div>
+</div>
+
 <!-- セクション1：事件の概要 -->
 <div class="section" id="s1">
   <div class="section-header">
@@ -1284,6 +1307,40 @@
 </div>
 
 <script>
+  // XシェアURL・URLコピー処理
+  (function() {
+    var pageUrl = window.location.href;
+    var shareText = encodeURIComponent('箱ヘル アムール（難波）個人情報漏洩疑惑 完全まとめ\nシティヘブン登録情報が爆サイに漏洩した件の証拠・考察\n#アムール難波 #風俗トラブル #個人情報漏洩');
+    var xUrl = 'https://x.com/intent/tweet?text=' + shareText + '&url=' + encodeURIComponent(pageUrl);
+
+    // シェアボタンにURL設定
+    ['x-share-top','x-share-bottom'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.href = xUrl;
+    });
+
+    // URL表示
+    ['page-url-top','page-url-bottom'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.textContent = pageUrl;
+    });
+
+    // クリックでコピー
+    function makeCopy(urlId, msgId) {
+      var urlEl = document.getElementById(urlId);
+      var msgEl = document.getElementById(msgId);
+      if (!urlEl) return;
+      urlEl.addEventListener('click', function() {
+        navigator.clipboard.writeText(pageUrl).then(function() {
+          msgEl.textContent = 'コピーしました！';
+          setTimeout(function(){ msgEl.textContent = ''; }, 2000);
+        });
+      });
+    }
+    makeCopy('page-url-top',    'copy-msg-top');
+    makeCopy('page-url-bottom', 'copy-msg-bottom');
+  })();
+
   // 証拠画像クリックで拡大
   document.querySelectorAll('img').forEach(img => {
     img.classList.add('evidence-img');
@@ -1300,6 +1357,35 @@
     document.getElementById('lightbox').style.display = 'none';
   });
 </script>
+
+
+<!-- シェアブロック（冒頭） -->
+<div id="share-block-top" style="background:linear-gradient(135deg,#1a2a1a,#1e2e1a); border:2px solid #4ade80; border-radius:8px; padding:20px 24px; margin:24px 0; text-align:center;">
+  <div style="font-size:15px; font-weight:700; color:var(--text1); margin-bottom:6px;">この情報が役立ったら拡散をお願いします</div>
+  <div style="font-size:13px; color:#4ade80; letter-spacing:0.1em; font-weight:700; margin-bottom:10px;">📢 リンクフリー ― SNS・掲示板・ブログへの転載歓迎</div>
+  <a id="x-share-top" href="#" target="_blank" rel="noopener" style="
+    display:inline-flex; align-items:center; gap:8px;
+    background:#e8f5e9; color:#111; font-weight:700; font-size:15px;
+    padding:10px 22px; border-radius:6px; text-decoration:none;
+    border:1px solid #4ade80; transition:background 0.2s;
+  " onmouseover="this.style.background='#c8e6c9'" onmouseout="this.style.background='#e8f5e9'">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="#111"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    Xでシェアする
+  </a>
+  <div style="margin-top:14px;">
+    <div style="font-size:12px; color:#a0d8b0; margin-bottom:6px;">このページのURL（クリックでコピー）</div>
+    <div id="page-url-top" style="
+      background:#0f1f0f; border:1px solid #4ade80; border-radius:4px;
+      padding:8px 12px; font-size:13px; color:#c8e6c9; word-break:break-all;
+      cursor:pointer; user-select:all; text-align:left;
+    " title="クリックでコピー">読み込み中...</div>
+    <div id="copy-msg-top" style="font-size:12px; color:#4ade80; margin-top:4px; height:16px;"></div>
+  </div>
+</div>
+
+
+
+
 
 <!-- GoatCounter アクセス解析 -->
 <script data-goatcounter="https://amourmatome.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
