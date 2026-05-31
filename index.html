@@ -60,13 +60,13 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html { font-size: 19px; }
+  html { font-size: 17px; }
 
   body {
     background: var(--bg);
     color: var(--text);
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 1.05rem;
+    font-size: 17px;
     line-height: 2.0;
     text-align: left;
   }
@@ -94,7 +94,6 @@
     background: var(--accent);
     color: white;
     font-size: 15px;
-    font-weight: 700;
     letter-spacing: 0.15em;
     padding: 4px 14px;
     border-radius: 2px;
@@ -104,7 +103,6 @@
   .site-title {
     font-family: 'Noto Serif JP', serif;
     font-size: clamp(20px, 4vw, 32px);
-    font-weight: 700;
     line-height: 1.4;
     color: var(--text);
     margin-bottom: 12px;
@@ -139,7 +137,6 @@
 
   .toc-title {
     font-size: 15px;
-    font-weight: 700;
     letter-spacing: 0.15em;
     color: var(--accent3);
     margin-bottom: 12px;
@@ -152,7 +149,7 @@
 
   .toc li {
     margin: 8px 0;
-    font-size: 16px;
+    font-size: 17px;
   }
 
   .toc a {
@@ -182,7 +179,6 @@
     background: var(--accent);
     color: white;
     font-size: 17px;
-    font-weight: 700;
     width: 28px;
     height: 28px;
     border-radius: 50%;
@@ -199,7 +195,6 @@
   .section-title {
     font-family: 'Noto Serif JP', serif;
     font-size: clamp(17px, 3vw, 21px);
-    font-weight: 700;
     color: var(--text);
   }
 
@@ -256,7 +251,6 @@
     font-size: 15px;
     color: var(--text3);
     letter-spacing: 0.1em;
-    font-weight: 700;
   }
 
   .chat-body {
@@ -271,7 +265,6 @@
 
   .chat-msg .sender {
     font-size: 15px;
-    font-weight: 700;
     letter-spacing: 0.1em;
     margin-bottom: 4px;
   }
@@ -307,7 +300,6 @@
     font-size: 15px;
     color: var(--text3);
     margin-bottom: 8px;
-    font-weight: 700;
     letter-spacing: 0.1em;
   }
 
@@ -360,7 +352,6 @@
 
   .flow-label {
     font-size: 15px;
-    font-weight: 700;
     letter-spacing: 0.12em;
     margin-bottom: 4px;
   }
@@ -373,7 +364,7 @@
   .data-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 16px;
+    font-size: 17px;
     margin: 16px 0;
   }
 
@@ -382,7 +373,6 @@
     padding: 10px 14px;
     text-align: left;
     font-size: 15px;
-    font-weight: 700;
     letter-spacing: 0.1em;
     color: var(--text2);
     border-bottom: 1px solid var(--border);
@@ -400,7 +390,6 @@
   .tag {
     display: inline-block;
     font-size: 15px;
-    font-weight: 700;
     padding: 2px 8px;
     border-radius: 2px;
     letter-spacing: 0.08em;
@@ -451,7 +440,6 @@
   .tl-date {
     font-size: 15px;
     color: var(--text3);
-    font-weight: 700;
     letter-spacing: 0.1em;
     margin-bottom: 4px;
   }
@@ -477,7 +465,6 @@
     background: var(--bg3);
     padding: 10px 16px;
     font-size: 17px;
-    font-weight: 700;
     letter-spacing: 0.1em;
     display: flex;
     align-items: center;
@@ -507,7 +494,6 @@
 
   .alert-title {
     color: var(--accent);
-    font-weight: 700;
     font-size: 17px;
     margin-bottom: 10px;
     display: flex;
@@ -537,12 +523,12 @@
   }
 
   /* ハイライトテキスト */
-  .hl { color: var(--accent); font-weight: 700; }
-  .hl-blue { color: var(--accent3); font-weight: 700; }
-  .hl-orange { color: var(--accent2); font-weight: 700; }
-  .hl-green { color: var(--green); font-weight: 700; }
+  .hl { color: var(--accent); }
+  .hl-blue { color: var(--accent3); }
+  .hl-orange { color: var(--accent2); }
+  .hl-green { color: var(--green); }
 
-  p { margin: 12px 0; color: var(--text2); font-size: 1.05rem; line-height: 1.9; }
+  p { margin: 12px 0; color: var(--text2); font-size: 17px; line-height: 1.9; }
 
   hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
 
@@ -578,8 +564,7 @@
     .data-table td[data-label]::before {
       content: attr(data-label);
       display: block;
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 13px;
       letter-spacing: 0.1em;
       color: var(--text3);
       text-transform: uppercase;
@@ -588,9 +573,8 @@
 
     /* 矛盾点テーブル専用：投稿内容セルを強調 */
     .contradiction-table td:nth-child(1) {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--accent);
-      font-weight: 700;
       padding-bottom: 4px;
     }
     .contradiction-table td:nth-child(2) {
@@ -599,7 +583,7 @@
       font-weight: 500;
     }
     .contradiction-table td:nth-child(3) {
-      font-size: 14px;
+      font-size: 15px;
       color: var(--text2);
       background: rgba(0,0,0,0.15);
     }
@@ -607,8 +591,7 @@
     /* 事件概要テーブル（縦2列） */
     .summary-table td::before { display: none; }
     .summary-table td:first-child {
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 13px;
       color: var(--text3);
       letter-spacing: 0.1em;
       padding-bottom: 2px;
@@ -625,7 +608,7 @@
     /* セクションタイトル */
     .section-title { font-size: 18px; }
 
-    html { font-size: 17px; }
+    html { font-size: 16px; }
   }
 </style>
 
@@ -643,7 +626,7 @@
     text-align:left;
     line-height:1.3;
   ">
-    <div style="font-size:11px; color:var(--text3); letter-spacing:0.12em; font-weight:700; text-transform:uppercase; margin-bottom:2px;">TOTAL VIEWS</div>
+    <div style="font-size:11px; color:var(--text3); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:2px;">TOTAL VIEWS</div>
     <div id="hit-count-header" style="font-size:28px; font-weight:900; color:var(--accent2); letter-spacing:0.05em;">...</div>
   </div>
   <div class="warning-badge">⚠ 注意喚起まとめ</div>
@@ -656,7 +639,7 @@
 
 <!-- 初見向け要約 -->
 <div style="background:rgba(232,74,74,0.08); border:2px solid rgba(232,74,74,0.5); border-radius:8px; padding:20px 24px; margin:24px 0;">
-  <div style="font-size:13px; font-weight:700; color:var(--accent); letter-spacing:0.12em; margin-bottom:10px;">📌 このサイトについて（初めての方へ）</div>
+  <div style="font-size:15px; color:var(--accent); letter-spacing:0.12em; margin-bottom:10px;">📌 このサイトについて（初めての方へ）</div>
   <p style="margin:0 0 10px; font-size:17px; line-height:1.9; color:var(--text);">
     大阪・難波の風俗店「アムール」を利用した客（以下「ヒロちゃん」）が、<span class="hl">シティヘブンに登録した際のニックネームを店側に無断で爆サイに投稿された</span>件をまとめています。
   </p>
@@ -670,7 +653,7 @@
 
 <!-- TOC -->
 <div style="background:var(--bg2); border:1px solid var(--border); border-left:3px solid var(--accent3); border-radius:6px; padding:20px 24px; margin:24px 0;">
-  <div style="font-size:14px; font-weight:700; color:var(--accent3); letter-spacing:0.15em; margin-bottom:12px; text-transform:uppercase;">目次</div>
+  <div style="font-size:15px; color:var(--accent3); letter-spacing:0.15em; margin-bottom:12px; text-transform:uppercase;">目次</div>
   <ol style="margin:0; padding-left:0; list-style:none; font-size:17px; line-height:2.4; color:var(--text2);">
     <li><a href="#s1" style="color:var(--text2); text-decoration:none;" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text2)'">① 事件の概要</a></li>
     <li><a href="#s2" style="color:var(--text2); text-decoration:none;" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text2)'">② 決定的証拠：「ヒロちゃん」問題</a></li>
@@ -685,10 +668,10 @@
 
 <!-- シェアブロック（冒頭） -->
 <div id="share-block-top" style="background:linear-gradient(135deg,#1a2a1a,#1e2e1a); border:2px solid #4ade80; border-radius:8px; padding:20px 24px; margin:24px 0; text-align:center;">
-  <div style="font-size:13px; color:#4ade80; letter-spacing:0.1em; font-weight:700; margin-bottom:10px;">📢 リンクフリー ― 拡散・転載歓迎</div>
+  <div style="font-size:15px; color:#4ade80; letter-spacing:0.1em; margin-bottom:10px;">📢 リンクフリー ― 拡散・転載歓迎</div>
   <a id="x-share-top" href="#" target="_blank" rel="noopener" style="
     display:inline-flex; align-items:center; gap:8px;
-    background:#e8f5e9; color:#111; font-weight:700; font-size:15px;
+    background:#e8f5e9; color:#111; font-size:15px;
     padding:10px 22px; border-radius:6px; text-decoration:none;
     border:1px solid #4ade80; transition:background 0.2s;
   " onmouseover="this.style.background='#c8e6c9'" onmouseout="this.style.background='#e8f5e9'">
@@ -699,7 +682,7 @@
     <div style="font-size:12px; color:#a0d8b0; margin-bottom:6px;">このページのURL（クリックでコピー）</div>
     <div id="page-url-top" style="
       background:#0f1f0f; border:1px solid #4ade80; border-radius:4px;
-      padding:8px 12px; font-size:13px; color:#c8e6c9; word-break:break-all;
+      padding:8px 12px; font-size:15px; color:#c8e6c9; word-break:break-all;
       cursor:pointer; user-select:all; text-align:left;
     " title="クリックでコピー">読み込み中...</div>
     <div id="copy-msg-top" style="font-size:12px; color:#4ade80; margin-top:4px; height:16px;"></div>
@@ -741,9 +724,9 @@
   </div>
 
   <div style="margin:20px 0;">
-    <div style="font-size:14px; color:var(--text3); letter-spacing:0.1em; margin-bottom:8px; font-weight:700;">▼ 店舗外観（難波）</div>
+    <div style="font-size:15px; color:var(--text3); letter-spacing:0.1em; margin-bottom:8px;">▼ 店舗外観（難波）</div>
     <img src="amour_exterior.png" alt="箱ヘル アムール 難波 外観" style="width:100%; max-width:600px; border-radius:6px; border:1px solid var(--border); display:block;">
-    <div style="font-size:14px; color:var(--text3); margin-top:6px;">箱ヘル アムール（大阪市中央区）/ 06-6213-5599 / http://club-amour.com</div>
+    <div style="font-size:15px; color:var(--text3); margin-top:6px;">箱ヘル アムール（大阪市中央区）/ 06-6213-5599 / http://club-amour.com</div>
   </div>
 </div>
 
@@ -849,7 +832,7 @@
           <tr>
             <td data-label="#">#223（110スレ 5/20）</td>
             <td data-label="投稿内容">「店に無料券強請るような性格のヒロちゃん」</td>
-            <td data-label="店側しか知り得ない理由">シティヘブンチャット内でヒロちゃんは当初、無料券での解決を店に提案していた。この交渉経緯はまとめ・爆サイ・Xのどこにも記載がない。を読んだ者のみ書ける情報。</td>
+            <td data-label="店側しか知り得ない理由">シティヘブンチャット内でヒロちゃんが「まず無料券で解決」と店に提案していた。この交渉は爆サイ・まとめ・Xのどこにも書かれていないため、チャットを読んだ者のみが書ける。</td>
           </tr>
         </tbody>
       </table>
@@ -1044,10 +1027,10 @@
       <table class="data-table">
         <thead><tr><th>役割</th><th>特徴</th><th>代表投稿</th></tr></thead>
         <tbody>
-          <tr><td><span class="tag red">責任者クラス</span></td><td>法的用語・シティヘブンチャット内容把握・決定権</td><td>#525・#534・#552</td></tr>
+          <tr><td><span class="tag red">責任者クラス</span></td><td>法的用語・チャット内容把握・出禁判断権あり</td><td>#525・#534・#552</td></tr>
           <tr><td><span class="tag orange">感情的スタッフ</span></td><td>暴言・早朝投稿・絵文字多用</td><td>#493・#863・#899</td></tr>
-          <tr><td><span class="tag blue">沈静化担当</span></td><td>「個スレでやれ」「もういいんじゃない」</td><td>#603・#606・#804</td></tr>
-          <tr><td><span class="tag green">嘲笑担当</span></td><td>絵文字・煽り・Xアカウント晒し</td><td>#733・#797・#814</td></tr>
+          <tr><td><span class="tag blue">沈静化担当</span></td><td>「個スレでやれ」「もういい」と火消し役</td><td>#603・#606・#804</td></tr>
+          <tr><td><span class="tag green">嘲笑担当</span></td><td>煽り・絵文字・Xアカウント晒し</td><td>#733・#797・#814</td></tr>
         </tbody>
       </table>
     </div>
@@ -1059,7 +1042,7 @@
       <table class="data-table">
         <thead><tr><th>時間帯</th><th>投稿</th><th>状況</th></tr></thead>
         <tbody>
-          <tr><td><span class="hl">02:00〜05:59</span></td><td><span style="color:var(--green); font-weight:700;">完全ゼロ</span></td><td>閉店後就寝時間</td></tr>
+          <tr><td><span class="hl">02:00〜05:59</span></td><td><span style="color:var(--green);">完全ゼロ</span></td><td>閉店後就寝時間</td></tr>
           <tr><td>06:00〜09:59</td><td>複数確認</td><td>営業開始直後（#493は06:10）</td></tr>
           <tr><td>17:00〜21:00</td><td>最多・集中</td><td>夕方営業本番前後</td></tr>
           <tr><td>00:00〜02:00</td><td>複数確認</td><td>閉店後帰宅直後</td></tr>
@@ -1077,7 +1060,7 @@
       <table class="data-table">
         <thead><tr><th>言っていること</th><th>実際の行動</th></tr></thead>
         <tbody>
-          <tr><td>「ノータリン無能ゴミサイトのhit数は増えたか？カウントダウンはやめちゃったww」</td><td>カウンター（カウントアップ）を指すと思われる。　正常動作しないカウンターの一時除去を即座に把握・hit数を気にする</td></tr>
+          <tr><td>「ノータリン無能ゴミサイトのhit数は増えたか？カウントダウンはやめちゃったww」</td><td>一時除去したカウンターの状態を即座に把握→数字を気にしている証拠</td></tr>
           <tr><td>「見てないよ〜」</td><td>まとめサイトの内容を把握して反論</td></tr>
           <tr><td>「アムールなんて3年以上検索してない」</td><td>毎日スレに張り付いて投稿</td></tr>
           <tr><td>「関係ない」</td><td>X・爆サイ・まとめサイトを全て監視</td></tr>
@@ -1103,7 +1086,7 @@
       <p style="margin:0 0 14px;">店側は爆サイだけでなく、<span class="hl">ヒロちゃんのXアカウントも継続的に監視していた。</span>その証拠として、「御厨楓」（@prX1lmcRzsNLqiW）というXアカウントが確認されている。</p>
 
       <div style="background:var(--bg3); border:1px solid rgba(232,74,74,0.35); border-radius:6px; padding:16px 20px; margin:0 0 16px;">
-        <div style="font-size:15px; font-weight:700; color:var(--accent); letter-spacing:0.1em; margin-bottom:10px;">🔍 スパイアカウント「御厨楓」の特徴</div>
+        <div style="font-size:15px; color:var(--accent); letter-spacing:0.1em; margin-bottom:10px;">🔍 スパイアカウント「御厨楓」の特徴</div>
         <table class="data-table" style="margin:0;">
           <tbody>
             <tr><td style="width:140px; color:var(--text3);">アカウント名</td><td>御厨楓 / @prX1lmcRzsNLqiW</td></tr>
@@ -1118,23 +1101,23 @@
       <!-- 証拠画像2枚 -->
       <div style="display:flex; gap:12px; margin:0 0 16px; flex-wrap:wrap;">
         <div style="flex:1; min-width:140px;">
-          <div style="font-size:13px; color:var(--text3); font-weight:700; letter-spacing:0.1em; margin-bottom:6px;">▼ スパイ垢プロフィール（ヒロちゃんにブロック済）</div>
+          <div style="font-size:15px; color:var(--text3); letter-spacing:0.1em; margin-bottom:6px;">▼ スパイ垢プロフィール（ヒロちゃんにブロック済）</div>
           <img src="Xスパイ.PNG" alt="御厨楓アカウント・ブロック済み"
             style="width:100%; border-radius:6px; border:2px solid rgba(232,74,74,0.5); cursor:zoom-in; display:block;">
         </div>
         <div style="flex:1; min-width:140px;">
-          <div style="font-size:13px; color:var(--text3); font-weight:700; letter-spacing:0.1em; margin-bottom:6px;">▼ フォロー中にアムール在籍嬢2名を確認</div>
+          <div style="font-size:15px; color:var(--text3); letter-spacing:0.1em; margin-bottom:6px;">▼ フォロー中にアムール在籍嬢2名を確認</div>
           <img src="フォロー中.png" alt="御厨楓フォロー中リスト・アムール嬢2名"
             style="width:100%; border-radius:6px; border:2px solid rgba(232,74,74,0.5); cursor:zoom-in; display:block;">
         </div>
       </div>
-      <div style="font-size:14px; color:var(--text3); text-align:center; margin-bottom:16px;">※ 画像をタップ／クリックで拡大表示</div>
+      <div style="font-size:15px; color:var(--text3); text-align:center; margin-bottom:16px;">※ 画像をタップ／クリックで拡大表示</div>
 
       <div class="key-point" style="margin:0 0 14px;">
         フォロー18・フォロワー1という構成は<span class="hl">情報収集に特化した監視垢</span>の典型的な形態である。フォロー中にアムール在籍嬢が複数含まれている事実は、このアカウントが店関係者によって運用されていることを強く示している。
       </div>
 
-      <p style="margin:0 0 12px; font-weight:700; color:var(--text);">■ X監視していないと書けない爆サイ投稿</p>
+      <p style="margin:0 0 12px; color:var(--text);">■ X監視していないと書けない爆サイ投稿</p>
       <div class="bbs-post suspicious">
         <div class="post-num">#797（5/5 17:08）</div>
         <span class="hl">光一垢消してかなめ垢👴@kanamewk8e👴作ってる</span><br>
@@ -1158,7 +1141,7 @@
       </div>
 
       <div style="background:rgba(232,74,74,0.08); border:1px solid rgba(232,74,74,0.3); border-radius:6px; padding:16px 20px; margin-top:16px;">
-        <div style="font-size:16px; font-weight:700; color:var(--accent); margin-bottom:8px;">⚠ 読者への警告</div>
+        <div style="font-size:17px; color:var(--accent); margin-bottom:8px;">⚠ 読者への警告</div>
         <div style="font-size:17px; color:var(--text2); line-height:1.9;">
           店側は<span class="hl">爆サイ・まとめサイト・X（旧Twitter）のすべてを常時監視している。</span><br>
           口コミを投稿したり、Xで発信したりすると、<span class="hl">その内容は即座に店側に把握され、アカウント情報・投稿内容が爆サイに晒される可能性がある。</span><br>
@@ -1192,10 +1175,10 @@
       </table>
 
       <div style="background:rgba(232,74,74,0.1); border:2px solid rgba(232,74,74,0.5); border-radius:6px; padding:20px 24px; margin:0;">
-        <div style="font-size:16px; font-weight:700; color:var(--accent); margin-bottom:12px;">🚨 この執拗さが意味するもの</div>
+        <div style="font-size:17px; color:var(--accent); margin-bottom:12px;">🚨 この執拗さが意味するもの</div>
         <div style="font-size:17px; color:var(--text2); line-height:2.0;">
           容姿収集の試みは<span class="hl">複数回・複数の手段にわたって繰り返されている。</span>爆サイでの誘導、防犯カメラ映像を使った特定の可能性、Xスパイアカウントによるプロフィール・顔写真収集——<span class="hl">これは偶発的な行為ではなく、組織として「誰なのか」を突き止めようとする意図的・継続的な工作である。</span><br><br>
-          <span class="hl">個人を特定した後は反社による恫喝を行う気なのだろうか。<span><br><br>
+          <span class="hl">個人を特定した後は反社による恫喝を行う気なのだろうか。</span><br><br>
           ヒロちゃんがXアカウントを変更するたびに即座に晒されたという事実は、<span class="hl">監視が終わっていないことを示している。</span><br><br>
           <span class="hl" style="font-size:18px;">「口コミを書いた客を特定し、黙らせる」——これが店側の一貫した目的である。</span><br><br>
           このまとめサイトを読んでいるあなたも、アムールを利用しシティヘブンに登録している限り、<span class="hl">同じ被害に遭う可能性がある。</span>
@@ -1237,7 +1220,7 @@
   </div>
 
   <div class="card highlight">
-    <p style="margin:0 0 16px; font-size:17px; font-weight:700; color:var(--accent);">シティヘブンに登録している方へ</p>
+    <p style="margin:0 0 16px; font-size:17px; color:var(--accent);">シティヘブンに登録している方へ</p>
     <ul style="margin:0; padding-left:20px; font-size:17px; line-height:2.2; color:var(--text2);">
       <li>トラブル時に<span class="hl">登録ニックネーム・年代・利用情報が掲示板に投稿される可能性</span>があります</li>
       <li>反社会的勢力を匂わせる<span class="hl">恫喝を受ける可能性</span>があります</li>
@@ -1258,11 +1241,11 @@
 
 <!-- シェアブロック（末尾） -->
 <div id="share-block-bottom" style="background:linear-gradient(135deg,#1a2a1a,#1e2e1a); border:2px solid #4ade80; border-radius:8px; padding:20px 24px; margin:24px 0; text-align:center;">
-  <div style="font-size:15px; font-weight:700; color:var(--text1); margin-bottom:6px;">この情報が役立ったら拡散をお願いします</div>
-  <div style="font-size:13px; color:#4ade80; letter-spacing:0.1em; font-weight:700; margin-bottom:10px;">📢 リンクフリー ― SNS・掲示板・ブログへの転載歓迎</div>
+  <div style="font-size:15px; color:var(--text1); margin-bottom:6px;">この情報が役立ったら拡散をお願いします</div>
+  <div style="font-size:15px; color:#4ade80; letter-spacing:0.1em; margin-bottom:10px;">📢 リンクフリー ― SNS・掲示板・ブログへの転載歓迎</div>
   <a id="x-share-bottom" href="#" target="_blank" rel="noopener" style="
     display:inline-flex; align-items:center; gap:8px;
-    background:#e8f5e9; color:#111; font-weight:700; font-size:15px;
+    background:#e8f5e9; color:#111; font-size:15px;
     padding:10px 22px; border-radius:6px; text-decoration:none;
     border:1px solid #4ade80; transition:background 0.2s;
   " onmouseover="this.style.background='#c8e6c9'" onmouseout="this.style.background='#e8f5e9'">
@@ -1273,7 +1256,7 @@
     <div style="font-size:12px; color:#a0d8b0; margin-bottom:6px;">このページのURL（クリックでコピー）</div>
     <div id="page-url-bottom" style="
       background:#0f1f0f; border:1px solid #4ade80; border-radius:4px;
-      padding:8px 12px; font-size:13px; color:#c8e6c9; word-break:break-all;
+      padding:8px 12px; font-size:15px; color:#c8e6c9; word-break:break-all;
       cursor:pointer; user-select:all; text-align:left;
     " title=>https://core-ix7.github.io/amour-matome/</div>
     <div id="copy-msg-bottom" style="font-size:12px; color:#4ade80; margin-top:4px; height:16px;"></div>
@@ -1283,7 +1266,7 @@
 <footer>
 <!-- 法的根拠バナー -->
 <div style="background:rgba(74,222,128,0.06); border:1px solid rgba(74,222,128,0.25); border-radius:6px; padding:20px 24px; margin:0 0 24px; font-size:15px; color:#a0d8b0; line-height:1.9;">
-  <strong style="color:#4ade80;">【本サイトの法的根拠】</strong><br>
+  <span style="color:#4ade80;">【本サイトの法的根拠】</span><br>
   ①事実の摘示＋公益目的により名誉毀損不該当<br>
   ②著作権法32条の範囲内での引用<br>
 </div>
